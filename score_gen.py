@@ -6,9 +6,12 @@ class FileUtil:
 
     def write_to_file(self, content):
         with open(self.file_name, 'w', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerows(content)
-
+            # deciding to write to .csv or .txt
+            if self.file_name.endswith(".csv"):
+                writer = csv.writer(file)
+                writer.writerows(content)
+            elif self.file_name.endswith(".txt"):
+                file.writelines("\n".join(content))
     def read_from_file(self):
         with open(self.file_name, 'r') as file:
             content = file.read().splitlines()
@@ -48,6 +51,7 @@ class Main:
 
         file_util.generate_random_players(player_count, max_score)
 
-
-main_instance = Main()
+# avoiding excetuion when a module is imprted
+if __name__ == "__main__":
+    main_instance = Main()
 
