@@ -16,11 +16,8 @@ for line in words:
     elif 8 <= len(line) < 13:
         hard.append(line)
 
-outE = FileUtil("easy.txt")
-outE.write_to_file(easy)
+FileUtil("easy.txt").write_to_file(easy)
 
-outM = FileUtil("medium.txt")
-outM.write_to_file(medium)
+FileUtil("medium.txt").write_to_file(medium)
 
-outE = FileUtil("hard.txt")
-outE.write_to_file(hard)
+FileUtil("hard.txt").write_to_file(hard)
